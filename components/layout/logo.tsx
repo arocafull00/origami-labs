@@ -1,5 +1,6 @@
-import { Box, Flex, Heading, VisuallyHidden } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import { Link } from '@saas-ui/react'
+import Image from 'next/image'
 
 import * as React from 'react'
 
@@ -11,28 +12,25 @@ export interface LogoProps {
 }
 
 export const Logo = ({ href = '/', onClick }: LogoProps) => {
-  let logo
-  if (siteConfig.logo) {
-    logo = <Box as={siteConfig.logo} height="32px" mt="-4px" />
-  } else {
-    logo = (
-      <Heading as="h1" size="md">
-        {siteConfig.seo?.title}
-      </Heading>
-    )
-  }
+  const title = siteConfig.seo?.title ?? ''
 
   return (
-    <Flex h="8" flexShrink="0" alignItems="flex-start">
+    <Flex h="8" flexShrink="0" alignItems="center">
       <Link
         href={href}
         display="flex"
         p="1"
         borderRadius="sm"
         onClick={onClick}
+        alignItems="center"
       >
-        {logo}
-        <VisuallyHidden>{siteConfig.seo?.title}</VisuallyHidden>
+        <Image
+          src="/static/images/logo.png"
+          alt={title}
+          width={32}
+          height={32}
+          priority
+        />
       </Link>
     </Flex>
   )

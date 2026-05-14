@@ -20,23 +20,8 @@ export default function Layout(props: { children: React.ReactNode }) {
   return (
     <html lang="es" data-theme={colorMode} style={{ colorScheme: colorMode }}>
       <head>
-        <link
-          rel="apple-touch-icon"
-          sizes="76x76"
-          href="/static/favicons/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/static/favicons/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/static/favicons/favicon-16x16.png"
-        />
+        <link rel="apple-touch-icon" href="/static/images/favicon.png" />
+        <link rel="icon" type="image/png" href="/static/images/favicon.png" />
         <link rel="manifest" href="/static/favicons/manifest.json" />
       </head>
       <body className={`chakra-ui-${colorMode}`}>

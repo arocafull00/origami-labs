@@ -6,7 +6,7 @@ export default {
     {
       name: 'Toll Story',
       description: 'Landing de impacto',
-      avatar: '/static/images/webs/toll-story.png',
+      avatar: '/static/images/webs/logos/favicon.webp',
       children: (
         <>
           Landing con identidad visual clara y experiencia cuidada para
@@ -17,7 +17,7 @@ export default {
     {
       name: 'Clínica 21 Días Psicoeducación',
       description: 'Web corporativa',
-      avatar: '/static/images/webs/21-dias.png',
+      avatar: '/static/images/webs/logos/logo%20copy.png',
       children: (
         <>Web corporativa para clínica especializada.</>
       ),
@@ -25,7 +25,7 @@ export default {
     {
       name: 'Invoicer',
       description: 'Plataforma y panel admin',
-      avatar: '/static/images/webs/invoicer.png',
+      avatar: '/static/images/webs/logos/logo.jpg',
       children: (
         <>
           Plataforma de facturación y panel administrativo.
@@ -35,7 +35,7 @@ export default {
     {
       name: 'Rocafull Group',
       description: 'Web corporativa',
-      avatar: '/static/images/webs/rocafull-group.png',
+      avatar: '/static/images/webs/logos/logo.png',
       children: (
         <>
           Web corporativa de servicios técnicos y calefacción.

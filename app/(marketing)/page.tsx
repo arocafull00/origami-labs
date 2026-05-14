@@ -159,7 +159,7 @@ const HeroSection: React.FC = () => {
         columns={[1, 2, 4]}
         iconSize={4}
         innerWidth="container.xl"
-        pt="20"
+        pt="1"
         features={[
           {
             title: 'Entregas rápidas',
