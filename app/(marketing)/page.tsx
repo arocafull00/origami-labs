@@ -25,6 +25,9 @@ import {
   FiCode,
   FiGrid,
   FiLayers,
+  FiMail,
+  FiMessageCircle,
+  FiPhone,
   FiSearch,
   FiSliders,
   FiTarget,
@@ -77,6 +80,8 @@ const Home = () => {
       <TestimonialsSection />
 
       <PricingSection />
+
+      <ContactSection />
 
       <FaqSection />
     </Box>
@@ -406,6 +411,97 @@ const PricingSection = () => {
         El IVA u otros impuestos pueden aplicarse según tu ubicación fiscal.
       </Text>
     </Pricing>
+  )
+}
+
+const ContactSection = () => {
+  return (
+    <Box as="section" id="contacto" py={{ base: 16, md: 20 }}>
+      <Container maxW="container.xl">
+        <Stack spacing="10">
+          <Stack spacing="4" maxW="3xl">
+            <Heading size="2xl">Contacto directo</Heading>
+            <Text color="muted" fontSize={{ base: 'lg', md: 'xl' }}>
+              Elige el canal que prefieras y te respondo lo antes posible.
+            </Text>
+          </Stack>
+
+          <Stack direction={{ base: 'column', md: 'row' }} spacing="6">
+            <Box
+              flex="1"
+              rounded="2xl"
+              borderWidth="1px"
+              p={{ base: 6, md: 8 }}
+              bg="white"
+              _dark={{ bg: 'gray.900' }}
+            >
+              <Stack spacing="4" alignItems="flex-start">
+                <Flex alignItems="center" gap="3">
+                  <Icon as={FiMail} boxSize="5" color="primary.500" />
+                  <Text fontWeight="semibold">Correo</Text>
+                </Flex>
+                <Text color="muted">adrianrocafull1@gmail.com</Text>
+                <ButtonLink
+                  href="mailto:adrianrocafull1@gmail.com?subject=Consulta%20Origami%20Labs"
+                  colorScheme="primary"
+                  variant="solid"
+                >
+                  Enviar correo
+                </ButtonLink>
+              </Stack>
+            </Box>
+
+            <Box
+              flex="1"
+              rounded="2xl"
+              borderWidth="1px"
+              p={{ base: 6, md: 8 }}
+              bg="white"
+              _dark={{ bg: 'gray.900' }}
+            >
+              <Stack spacing="4" alignItems="flex-start">
+                <Flex alignItems="center" gap="3">
+                  <Icon as={FiPhone} boxSize="5" color="primary.500" />
+                  <Text fontWeight="semibold">Teléfono</Text>
+                </Flex>
+                <Text color="muted">+34 722 56 18 09</Text>
+                <ButtonLink
+                  href="tel:+34722561809"
+                  colorScheme="primary"
+                  variant="outline"
+                >
+                  Llamar ahora
+                </ButtonLink>
+              </Stack>
+            </Box>
+
+            <Box
+              flex="1"
+              rounded="2xl"
+              borderWidth="1px"
+              p={{ base: 6, md: 8 }}
+              bg="white"
+              _dark={{ bg: 'gray.900' }}
+            >
+              <Stack spacing="4" alignItems="flex-start">
+                <Flex alignItems="center" gap="3">
+                  <Icon as={FiMessageCircle} boxSize="5" color="green.500" />
+                  <Text fontWeight="semibold">WhatsApp</Text>
+                </Flex>
+                <Text color="muted">+34 722 56 18 09</Text>
+                <ButtonLink
+                  href="https://wa.me/34722561809?text=Hola%20Origami%20Labs%2C%20quiero%20informaci%C3%B3n"
+                  colorScheme="green"
+                  variant="solid"
+                >
+                  Abrir WhatsApp
+                </ButtonLink>
+              </Stack>
+            </Box>
+          </Stack>
+        </Stack>
+      </Container>
+    </Box>
   )
 }
 
