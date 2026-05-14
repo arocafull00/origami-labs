@@ -15,11 +15,27 @@ import Navigation from './navigation'
 export interface HeaderProps extends Omit<BoxProps, 'children'> {}
 
 export const Header = (props: HeaderProps) => {
-  const ref = React.useRef<HTMLHeadingElement>(null)
+  const ref = React.useRef<HTMLDivElement>(null)
   const [y, setY] = React.useState(0)
-  const { height = 0 } = ref.current?.getBoundingClientRect() ?? {}
+  const [height, setHeight] = React.useState(0)
 
   const { scrollY } = useScroll()
+  React.useLayoutEffect(() => {
+    const el = ref.current
+    if (!el) {
+      return
+    }
+    const measure = () => {
+      setHeight(el.getBoundingClientRect().height)
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(el)
+    return () => {
+      ro.disconnect()
+    }
+  }, [])
+
   React.useEffect(() => {
     return scrollY.on('change', () => setY(scrollY.get()))
   }, [scrollY])

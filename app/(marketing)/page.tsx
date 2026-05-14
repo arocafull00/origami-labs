@@ -5,37 +5,33 @@ import {
   ButtonGroup,
   Container,
   Flex,
-  HStack,
   Heading,
   Icon,
   IconButton,
+  ListItem,
   Stack,
-  Tag,
   Text,
+  UnorderedList,
   VStack,
   Wrap,
   useClipboard,
 } from '@chakra-ui/react'
-import { Br, Link } from '@saas-ui/react'
-import type { Metadata, NextPage } from 'next'
-import Image from 'next/image'
+import { Br } from '@saas-ui/react'
 import {
   FiArrowRight,
   FiBox,
   FiCheck,
-  FiCode,
   FiCopy,
-  FiFlag,
+  FiCode,
   FiGrid,
-  FiLock,
+  FiLayers,
   FiSearch,
   FiSliders,
-  FiSmile,
-  FiTerminal,
-  FiThumbsUp,
-  FiToggleLeft,
+  FiTarget,
   FiTrendingUp,
   FiUserPlus,
+  FiUsers,
+  FiZap,
 } from 'react-icons/fi'
 
 import * as React from 'react'
@@ -45,26 +41,31 @@ import { Faq } from '#components/faq'
 import { Features } from '#components/features'
 import { BackgroundGradient } from '#components/gradients/background-gradient'
 import { Hero } from '#components/hero'
+import { HighlightTag } from '#components/highlight-tag/highlight-tag'
 import {
   Highlights,
   HighlightsItem,
   HighlightsTestimonialItem,
 } from '#components/highlights'
-import { ChakraLogo, NextjsLogo } from '#components/logos'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import { Pricing } from '#components/pricing/pricing'
+import { ProjectStack } from '#components/project-stack/project-stack'
 import { Testimonial, Testimonials } from '#components/testimonials'
 import { Em } from '#components/typography'
 import faq from '#data/faq'
 import pricing from '#data/pricing'
 import testimonials from '#data/testimonials'
 
-export const meta: Metadata = {
-  title: 'Saas UI Landingspage',
-  description: 'Free SaaS landingspage starter kit',
-}
+const SERVICE_TAGS = [
+  'Landing pages de alta conversión',
+  'Reservas y citas online',
+  'Dashboards y paneles',
+  'SEO local',
+  'Mantenimiento técnico',
+  'Digitalización interna',
+] as const
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <Box>
       <HeroSection />
@@ -94,31 +95,29 @@ const HeroSection: React.FC = () => {
             px="0"
             title={
               <FallInPlace>
-                Build beautiful
-                <Br /> software faster
+                Partner digital para
+                <Br /> marcas que buscan diferenciarse
               </FallInPlace>
             }
             description={
               <FallInPlace delay={0.4} fontWeight="medium">
-                Saas UI is a <Em>React component library</Em>
-                <Br /> that doesn&apos;t get in your way and helps you <Br />{' '}
-                build intuitive SaaS products with speed.
+                Origami Labs es un estudio para marcas que buscan diferenciarse,
+                empresas con enfoque moderno y negocios especializados. Creamos{' '}
+                <Em>
+                  experiencias web rápidas, claras y orientadas a conversión
+                </Em>
+                <Br />
+                para equipos orientados a la excelencia que quieren más clientes
+                y una presencia online impecable.
               </FallInPlace>
             }
           >
             <FallInPlace delay={0.8}>
-              <HStack pt="4" pb="12" spacing="8">
-                <NextjsLogo height="28px" /> <ChakraLogo height="20px" />
-              </HStack>
-
-              <ButtonGroup spacing={4} alignItems="center">
-                <ButtonLink colorScheme="primary" size="lg" href="/signup">
-                  Sign Up
-                </ButtonLink>
+              <ButtonGroup spacing={4} alignItems="center" pt="4">
                 <ButtonLink
+                  colorScheme="primary"
                   size="lg"
-                  href="https://demo.saas-ui.dev"
-                  variant="outline"
+                  href="mailto:adrianrocafull1@gmail.com?subject=Consulta%20Origami%20Labs"
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
@@ -132,7 +131,7 @@ const HeroSection: React.FC = () => {
                     />
                   }
                 >
-                  View demo
+                  Solicitar contacto
                 </ButtonLink>
               </ButtonGroup>
             </FallInPlace>
@@ -147,15 +146,8 @@ const HeroSection: React.FC = () => {
             margin="0 auto"
           >
             <FallInPlace delay={1}>
-              <Box overflow="hidden" height="100%">
-                <Image
-                  src="/static/screenshots/list.png"
-                  width={1200}
-                  height={762}
-                  alt="Screenshot of a ListPage in Saas UI Pro"
-                  quality="75"
-                  priority
-                />
+              <Box position="relative" height="100%">
+                <ProjectStack />
               </Box>
             </FallInPlace>
           </Box>
@@ -163,40 +155,41 @@ const HeroSection: React.FC = () => {
       </Container>
 
       <Features
-        id="benefits"
+        id="beneficios"
         columns={[1, 2, 4]}
         iconSize={4}
         innerWidth="container.xl"
         pt="20"
         features={[
           {
-            title: 'Accessible',
-            icon: FiSmile,
-            description: 'All components strictly follow WAI-ARIA standards.',
+            title: 'Entregas rápidas',
+            icon: FiZap,
+            description:
+              'Velocidad de ejecución sin renunciar a un acabado impecable y cercano.',
             iconPosition: 'left',
             delay: 0.6,
           },
           {
-            title: 'Themable',
-            icon: FiSliders,
+            title: 'Diseño que diferencia',
+            icon: FiLayers,
             description:
-              'Fully customize all components to your brand with theme support and style props.',
+              'Estética minimalista y moderna que refuerza confianza y marca.',
             iconPosition: 'left',
             delay: 0.8,
           },
           {
-            title: 'Composable',
-            icon: FiGrid,
+            title: 'Atención personalizada',
+            icon: FiUsers,
             description:
-              'Compose components to fit your needs and mix them together to create new ones.',
+              'Trato cercano y accesible, pensado para negocios locales y equipos reducidos.',
             iconPosition: 'left',
             delay: 1,
           },
           {
-            title: 'Productive',
-            icon: FiThumbsUp,
+            title: 'Enfoque al negocio',
+            icon: FiTarget,
             description:
-              'Designed to reduce boilerplate and fully typed, build your product at speed.',
+              'Soluciones ligadas a captación, reservas y procesos reales, no solo mockups.',
             iconPosition: 'left',
             delay: 1.1,
           },
@@ -208,17 +201,17 @@ const HeroSection: React.FC = () => {
 }
 
 const HighlightsSection = () => {
-  const { value, onCopy, hasCopied } = useClipboard('yarn add @saas-ui/react')
+  const { onCopy, hasCopied } = useClipboard('adrianrocafull1@gmail.com')
 
   return (
     <Highlights>
-      <HighlightsItem colSpan={[1, null, 2]} title="Core components">
+      <HighlightsItem colSpan={[1, null, 2]} title="Filosofía y propuesta">
         <VStack alignItems="flex-start" spacing="8">
           <Text color="muted" fontSize="xl">
-            Get started for free with <Em>30+ open source components</Em>.
-            Including authentication screens with Clerk, Supabase and Magic.
-            Fully functional forms with React Hook Form. Data tables with React
-            Table.
+            Combinamos <Em>imagen cuidada, velocidad y trato cercano</Em>. No se
+            trata solo de publicar una web: construimos herramientas útiles para
+            automatizar, gestionar reservas y proyectar una marca sólida y
+            actual.
           </Text>
 
           <Flex
@@ -234,15 +227,15 @@ const HighlightsSection = () => {
           >
             <Box>
               <Text color="yellow.400" display="inline">
-                yarn add
+                Email
               </Text>{' '}
               <Text color="cyan.300" display="inline">
-                @saas-ui/react
+                adrianrocafull1@gmail.com
               </Text>
             </Box>
             <IconButton
               icon={hasCopied ? <FiCheck /> : <FiCopy />}
-              aria-label="Copy install command"
+              aria-label="Copiar email"
               onClick={onCopy}
               variant="ghost"
               ms="4"
@@ -252,60 +245,40 @@ const HighlightsSection = () => {
           </Flex>
         </VStack>
       </HighlightsItem>
-      <HighlightsItem title="Solid foundations">
-        <Text color="muted" fontSize="lg">
-          We don&apos;t like to re-invent the wheel, neither should you. We
-          selected the most productive and established tools in the scene and
-          build Saas UI on top of it.
+      <HighlightsItem title="Sectores habituales">
+        <Text color="muted" fontSize="lg" mb="4">
+          Acompañamos a perfiles que viven de la confianza y la agenda llena:
         </Text>
+        <UnorderedList
+          color="muted"
+          fontSize="lg"
+          stylePosition="inside"
+        >
+          <ListItem>Clínicas dentales y centros de estética</ListItem>
+          <ListItem>Fisioterapeutas especializados</ListItem>
+          <ListItem>Agentes inmobiliarios y asesores financieros</ListItem>
+          <ListItem>Coaches de alto nivel</ListItem>
+          <ListItem>Bodas y eventos con exigencia de marca</ListItem>
+        </UnorderedList>
       </HighlightsItem>
       <HighlightsTestimonialItem
-        name="Renata Alink"
-        description="Founder"
-        avatar="/static/images/avatar.jpg"
+        name="Origami Labs"
+        description="Visión"
+        avatar="/static/favicons/apple-touch-icon.png"
         gradient={['pink.200', 'purple.500']}
       >
-        “Saas UI helped us set up a beautiful modern UI in no time. It saved us
-        hundreds of hours in development time and allowed us to focus on
-        business logic for our specific use-case from the start.”
+        Buscamos evolucionar hacia una plataforma modular reutilizable para
+        negocios locales, creando soluciones digitales rápidas, escalables y
+        mantenibles.
       </HighlightsTestimonialItem>
-      <HighlightsItem
-        colSpan={[1, null, 2]}
-        title="Start your next idea two steps ahead"
-      >
+      <HighlightsItem colSpan={[1, null, 2]} title="Servicios que integramos">
         <Text color="muted" fontSize="lg">
-          We took care of all your basic frontend needs, so you can start
-          building functionality that makes your product unique.
+          Cada entrega puede combinar varios de estos pilares según tu etapa y
+          presupuesto.
         </Text>
         <Wrap mt="8">
-          {[
-            'authentication',
-            'navigation',
-            'crud',
-            'settings',
-            'multi-tenancy',
-            'layouts',
-            'billing',
-            'a11y testing',
-            'server-side rendering',
-            'documentation',
-            'onboarding',
-            'storybooks',
-            'theming',
-            'upselling',
-            'unit testing',
-            'feature flags',
-            'responsiveness',
-          ].map((value) => (
-            <Tag
-              key={value}
-              variant="subtle"
-              colorScheme="purple"
-              rounded="full"
-              px="3"
-            >
-              {value}
-            </Tag>
+          {SERVICE_TAGS.map((label) => (
+            <HighlightTag key={label} label={label} />
           ))}
         </Wrap>
       </HighlightsItem>
@@ -324,16 +297,16 @@ const FeaturesSection = () => {
           textAlign="left"
           as="p"
         >
-          Not your standard
-          <Br /> dashboard template.
+          Servicios pensados para
+          <Br /> resultados medibles
         </Heading>
       }
       description={
         <>
-          Saas UI Pro includes everything you need to build modern frontends.
+          Desde la primera landing hasta el panel interno: tecnología aplicada a
+          captar clientes y ordenar tu operación.
           <Br />
-          Use it as a template for your next product or foundation for your
-          design system.
+          Comunicación clara, elegante y profesional en cada entrega.
         </>
       }
       align="left"
@@ -341,71 +314,52 @@ const FeaturesSection = () => {
       iconSize={4}
       features={[
         {
-          title: '#components.',
-          icon: FiBox,
-          description:
-            'All premium components are available on a private NPM registery, no more copy pasting and always up-to-date.',
-          variant: 'inline',
-        },
-        {
-          title: 'Starterkits.',
-          icon: FiLock,
-          description:
-            'Example apps in Next.JS, Electron. Including authentication, billing, example pages, everything you need to get started FAST.',
-          variant: 'inline',
-        },
-        {
-          title: 'Documentation.',
-          icon: FiSearch,
-          description:
-            'Extensively documented, including storybooks, best practices, use-cases and examples.',
-          variant: 'inline',
-        },
-        {
-          title: 'Onboarding.',
-          icon: FiUserPlus,
-          description:
-            'Add user onboarding flows, like tours, hints and inline documentation without breaking a sweat.',
-          variant: 'inline',
-        },
-        {
-          title: 'Feature flags.',
-          icon: FiFlag,
-          description:
-            "Implement feature toggles for your billing plans with easy to use hooks. Connect Flagsmith, or other remote config services once you're ready.",
-          variant: 'inline',
-        },
-        {
-          title: 'Upselling.',
+          title: 'Landings de conversión',
           icon: FiTrendingUp,
           description:
-            '#components and hooks for upgrade flows designed to make upgrading inside your app frictionless.',
+            'Páginas enfocadas a generar leads y solicitudes de contacto con mensajes directos.',
           variant: 'inline',
         },
         {
-          title: 'Themes.',
-          icon: FiToggleLeft,
+          title: 'Reservas y citas online',
+          icon: FiUserPlus,
           description:
-            'Includes multiple themes with darkmode support, always have the perfect starting point for your next project.',
+            'Flujos para que tus clientes reserven sin fricción y tu equipo mantenga el control.',
           variant: 'inline',
         },
         {
-          title: 'Generators.',
-          icon: FiTerminal,
+          title: 'Dashboards internos',
+          icon: FiSliders,
           description:
-            'Extend your design system while maintaininig code quality and consistency with built-in generators.',
+            'Paneles de gestión para visualizar métricas, tareas y procesos clave.',
           variant: 'inline',
         },
         {
-          title: 'Monorepo.',
+          title: 'SEO local',
+          icon: FiSearch,
+          description:
+            'Visibilidad en búsquedas cercanas al negocio para captar demanda de zona.',
+          variant: 'inline',
+        },
+        {
+          title: 'Mantenimiento continuo',
           icon: FiCode,
-          description: (
-            <>
-              All code is available as packages in a high-performance{' '}
-              <Link href="https://turborepo.com">Turborepo</Link>, you have full
-              control to modify and adjust it to your workflow.
-            </>
-          ),
+          description:
+            'Evolución técnica recurrente para que tu site siga rápido, estable y al día.',
+          variant: 'inline',
+        },
+        {
+          title: 'Digitalización de procesos',
+          icon: FiGrid,
+          description:
+            'Adaptamos flujos internos a herramientas web que ahorran tiempo y errores.',
+          variant: 'inline',
+        },
+        {
+          title: 'Webs corporativas y producto',
+          icon: FiBox,
+          description:
+            'Experiencia construyendo webs corporativas y plataformas funcionales de negocio.',
           variant: 'inline',
         },
       ]}
@@ -427,6 +381,7 @@ const TestimonialsSection = () => {
 
   return (
     <Testimonials
+      id="proyectos"
       title={testimonials.title}
       columns={[1, 2, 3]}
       innerWidth="container.xl"
@@ -434,8 +389,8 @@ const TestimonialsSection = () => {
       <>
         {columns.map((column, i) => (
           <Stack key={i} spacing="8">
-            {column.map((t, i) => (
-              <Testimonial key={i} {...t} />
+            {column.map((t, j) => (
+              <Testimonial key={`${t.name}-${j}`} {...t} />
             ))}
           </Stack>
         ))}
@@ -448,7 +403,7 @@ const PricingSection = () => {
   return (
     <Pricing {...pricing}>
       <Text p="8" textAlign="center" color="muted">
-        VAT may be applicable depending on your location.
+        El IVA u otros impuestos pueden aplicarse según tu ubicación fiscal.
       </Text>
     </Pricing>
   )

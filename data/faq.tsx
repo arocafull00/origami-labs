@@ -1,30 +1,69 @@
 import * as React from 'react'
 
 const faq = {
-  title: 'Frequently asked questions',
-  // description: '',
+  title: 'Preguntas frecuentes',
   items: [
     {
-      q: 'How many products can I use Saas UI Pro for?',
+      q: '¿Con qué tipos de negocio trabajáis?',
       a: (
         <>
-          The single license can be used for one commercial application or SaaS
-          product and unlimited internal tools. You can buy as many licenses as
-          you need. <br /> The unlimited license does not have any restrictions.
+          Trabajamos sobre todo con negocios locales premium: clínicas
+          dentales, centros de estética, fisioterapeutas especializados, agentes
+          inmobiliarios, asesores financieros, coaches de alto nivel y
+          servicios vinculados a bodas y eventos premium.
         </>
       ),
     },
     {
-      q: 'Can I use Saas UI Pro for client work?',
-      a: "Yes, that's totally up to you, as long as it fits the license you purchase.",
+      q: '¿Qué servicios ofrecéis?',
+      a: (
+        <>
+          Landing pages de alta conversión, sistemas de reservas y citas
+          online, dashboards internos y paneles de gestión, posicionamiento SEO
+          local, mantenimiento técnico continuo y digitalización de procesos
+          internos.
+        </>
+      ),
     },
     {
-      q: 'Can I use Saas UI Pro for Open Source projects?',
-      a: 'No currently not. A large part of Saas UI is already released under MIT license. We try to give back to the community as much as possible.',
+      q: '¿Cómo es el modelo de colaboración?',
+      a: (
+        <>
+          Desarrollo inicial cerrado por proyecto más una mensualidad recurrente
+          de mantenimiento y soporte cuando tiene sentido para el cliente. El
+          foco está en una relación a largo plazo, no en entregar y desaparecer.
+        </>
+      ),
     },
     {
-      q: 'Does Saas UI include Figma, Sketch or other design files?',
-      a: 'No, Saas UI does not include any design assets. Maintaining design resources costs a lot of extra effort. We believe small teams can move much faster by designing directly in code, with help of Storybooks.',
+      q: '¿Sois solo una página web o también herramientas útiles?',
+      a: (
+        <>
+          El objetivo no es solo tener una web bonita, sino herramientas
+          digitales que ayuden a automatizar, gestionar reservas, captar clientes
+          y reforzar una marca sólida y moderna.
+        </>
+      ),
+    },
+    {
+      q: '¿Trabajáis SEO y visibilidad local?',
+      a: (
+        <>
+          Sí, ofrecemos posicionamiento SEO local como parte de la propuesta
+          para negocios que dependen de clientes en su zona.
+        </>
+      ),
+    },
+    {
+      q: '¿Cómo puedo empezar una conversación?',
+      a: (
+        <>
+          Escríbenos a{' '}
+          <a href="mailto:adrianrocafull1@gmail.com">adrianrocafull1@gmail.com</a>{' '}
+          y te respondemos con un tono cercano pero profesional, alineado con
+          nuestra forma de trabajar.
+        </>
+      ),
     },
   ],
 }

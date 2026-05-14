@@ -2,15 +2,13 @@ import { extendTheme } from '@chakra-ui/react'
 import '@fontsource-variable/inter'
 import { theme as baseTheme } from '@saas-ui/react'
 
+import { colorModeConfig } from './config'
 import components from './components'
 import { fontSizes } from './foundations/typography'
 
 export const theme = extendTheme(
   {
-    config: {
-      initialColorMode: 'dark',
-      useSystemColorMode: false,
-    },
+    config: colorModeConfig,
     styles: {
       global: (props: any) => ({
         body: {

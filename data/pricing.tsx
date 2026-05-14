@@ -1,113 +1,61 @@
-import { HStack, Text } from '@chakra-ui/react'
-
 export default {
-  title: 'Pricing for every stage',
+  title: 'Cómo trabajamos contigo',
   description:
-    'Pay once and get life-time access to our high quality components.',
+    'Desarrollo inicial cerrado por proyecto y mensualidad recurrente de mantenimiento y soporte, con visión de relación a largo plazo.',
   plans: [
     {
-      id: 'oss',
-      title: 'Open Source',
-      description: 'Basic compoents, perfect to get started.',
-      price: 'Free',
-      features: [
-        {
-          title: 'MIT License',
-        },
-        {
-          title: 'Authentication (Clerk/Supabase/Magic)',
-        },
-        {
-          title: 'Form (react-hook-form)',
-        },
-        {
-          title: 'Modals manager',
-        },
-        {
-          title: 'Hotkeys',
-        },
-        {
-          title: 'Web3 components',
-        },
-        {
-          title: 'And much more...',
-        },
-      ],
-      action: {
-        href: '#',
-      },
-    },
-    {
-      id: 'bootstrap',
-      title: 'Bootstrap',
-      description: 'Complete frontend stack for bootstrappers and small teams.',
-      price: 'Free',
+      id: 'proyecto',
+      title: 'Desarrollo por proyecto',
+      description:
+        'Alcance cerrado para tu web, landing o herramienta digital. Entrega alineada a conversión, imagen de marca y procesos reales de tu negocio.',
+      price: 'A medida',
       isRecommended: true,
       features: [
         {
-          title: 'One project',
+          title: 'Presupuesto y alcance cerrados',
         },
         {
-          title: 'One developer',
+          title: 'Enfoque en conversión y presencia profesional',
         },
         {
-          title: 'Advanced components',
-        },
-        {
-          title: 'Multiple themes',
-        },
-        {
-          title: 'Next.js and Electron boilerplates',
-        },
-        {
-          title: 'Private discord community',
-        },
-        {
-          title: '1 year of updates',
+          title: 'Reutilización de sistemas probados para acelerar',
         },
         null,
         {
-          title: 'Private beta access',
+          title: 'Ideal para lanzar o renovar tu presencia digital',
           iconColor: 'green.500',
         },
       ],
       action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Single%20license',
+        href: 'mailto:adrianrocafull1@gmail.com?subject=Consulta%20proyecto%20Origami%20Labs',
+        label: 'Consultar proyecto',
       },
     },
     {
-      id: 'startup',
-      title: 'Startup',
-      description: 'Unlimited license for growing teams.',
-      price: (
-        <HStack>
-          <Text textDecoration="line-through" fontSize="sm" color="gray.400">
-            €999,-
-          </Text>
-          <Text>€499,-</Text>
-        </HStack>
-      ),
+      id: 'mantenimiento',
+      title: 'Mantenimiento y soporte',
+      description:
+        'Mensualidad recurrente para evolución técnica, actualizaciones y acompañamiento continuo una vez en marcha tu producto.',
+      price: 'Consultar',
       features: [
         {
-          title: 'Unlimited projects',
+          title: 'Soporte y mejoras continuas',
         },
         {
-          title: 'Unlimited developers',
+          title: 'Mantenimiento técnico del site o aplicación',
         },
         {
-          title: '1 year of updates',
-        },
-        {
-          title: 'Everything from Bootstrap',
+          title: 'Relación estable pensada a largo plazo',
         },
         null,
         {
-          title: 'Private beta access',
+          title: 'Prioridad para negocios que ya desarrollamos',
           iconColor: 'green.500',
         },
       ],
       action: {
-        href: 'https://appulse.gumroad.com/l/saas-ui-pro-pre-order?variant=Unlimited%20license',
+        href: 'mailto:adrianrocafull1@gmail.com?subject=Consulta%20mantenimiento%20Origami%20Labs',
+        label: 'Hablar de mantenimiento',
       },
     },
   ],

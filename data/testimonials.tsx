@@ -1,40 +1,44 @@
+import * as React from 'react'
+
 export default {
-  title: 'Loved by tech people',
+  title: 'Proyectos destacados',
   items: [
     {
-      name: 'Eelco Wiersma',
-      description: 'Founder Saas UI',
-      avatar:
-        'https://pbs.twimg.com/profile_images/1470742164024008706/k-eXHtu0_normal.jpg',
+      name: 'Toll Story',
+      description: 'Landing premium',
+      avatar: '/static/images/webs/toll-story.png',
       children: (
         <>
-          “With SaaS UI I am able to produce high quality dashboard apps and
-          internal tools without a lot of design skills. The ROI really is
-          amazing.”
+          Landing premium y experiencia visual para alquiler de espacios y
+          eventos.
         </>
       ),
     },
     {
-      name: 'Caroline Yahaya',
-      description: 'Fullstack Developer',
-      avatar: '/static/images/avatar2.jpg',
+      name: 'Clínica 21 Días Psicoeducación',
+      description: 'Web corporativa',
+      avatar: '/static/images/webs/21-dias.png',
+      children: (
+        <>Web corporativa para clínica especializada.</>
+      ),
+    },
+    {
+      name: 'Invoicer',
+      description: 'Plataforma y panel admin',
+      avatar: '/static/images/webs/invoicer.png',
       children: (
         <>
-          “Saas UI allows me to build beautiful and functional UI super fast.
-          The components are very well thought out and the Next.js starter kit
-          saved me at least 100 hours of work.”
+          Plataforma de facturación y panel administrativo.
         </>
       ),
     },
     {
-      name: 'Alberto Vazquez',
-      description: 'Frontend Engineer',
-      avatar: '/static/images/avatar3.jpg',
+      name: 'Rocafull Group',
+      description: 'Web corporativa',
+      avatar: '/static/images/webs/rocafull-group.png',
       children: (
         <>
-          “Saas UI gave us a perfect starting point for our project, having the
-          storybooks already set up with beautifully crafted components and
-          fully mocked pages was a treat.”
+          Web corporativa de servicios técnicos y calefacción.
         </>
       ),
     },

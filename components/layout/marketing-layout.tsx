@@ -22,7 +22,7 @@ export const MarketingLayout: React.FC<LayoutProps> = (props) => {
   const { children, announcementProps, headerProps, footerProps } = props
   return (
     <Box>
-      <SkipNavLink>Skip to content</SkipNavLink>
+      <SkipNavLink>Saltar al contenido</SkipNavLink>
       {announcementProps ? <AnnouncementBanner {...announcementProps} /> : null}
       <Header {...headerProps} />
       <Box as="main">
