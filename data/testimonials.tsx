@@ -5,12 +5,12 @@ export default {
   items: [
     {
       name: 'Toll Story',
-      description: 'Landing premium',
+      description: 'Landing de impacto',
       avatar: '/static/images/webs/toll-story.png',
       children: (
         <>
-          Landing premium y experiencia visual para alquiler de espacios y
-          eventos.
+          Landing con identidad visual clara y experiencia cuidada para
+          alquiler de espacios y eventos.
         </>
       ),
     },

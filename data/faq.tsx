@@ -7,10 +7,11 @@ const faq = {
       q: '¿Con qué tipos de negocio trabajáis?',
       a: (
         <>
-          Trabajamos sobre todo con negocios locales premium: clínicas
+          Trabajamos sobre todo con marcas que buscan diferenciarse, negocios
+          especializados y empresas orientadas a la excelencia: clínicas
           dentales, centros de estética, fisioterapeutas especializados, agentes
           inmobiliarios, asesores financieros, coaches de alto nivel y
-          servicios vinculados a bodas y eventos premium.
+          proyectos de bodas y eventos con fuerte identidad de marca.
         </>
       ),
     },

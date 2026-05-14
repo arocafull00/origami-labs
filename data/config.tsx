@@ -11,7 +11,7 @@ const siteConfig = {
   seo: {
     title: 'Origami Labs',
     description:
-      'Estudio tecnológico para negocios locales premium: experiencias web modernas, reservas online, SEO local y digitalización con diseño minimalista y trato cercano.',
+      'Estudio tecnológico para marcas que buscan diferenciarse y empresas con enfoque moderno: experiencias web ágiles, reservas online, SEO local y digitalización con trato cercano.',
   },
   header: {
     links: [
