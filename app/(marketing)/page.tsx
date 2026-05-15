@@ -7,21 +7,17 @@ import {
   Flex,
   Heading,
   Icon,
-  IconButton,
   ListItem,
   Stack,
   Text,
   UnorderedList,
   VStack,
   Wrap,
-  useClipboard,
 } from '@chakra-ui/react'
 import { Br } from '@saas-ui/react'
 import {
   FiArrowRight,
   FiBox,
-  FiCheck,
-  FiCopy,
   FiCode,
   FiGrid,
   FiLayers,
@@ -52,6 +48,7 @@ import {
 } from '#components/highlights'
 import { FallInPlace } from '#components/motion/fall-in-place'
 import { Pricing } from '#components/pricing/pricing'
+import { ProjectCarousel } from '#components/project-stack/project-carousel'
 import { ProjectStack } from '#components/project-stack/project-stack'
 import { Testimonial, Testimonials } from '#components/testimonials'
 import { Em } from '#components/typography'
@@ -77,8 +74,6 @@ const Home = () => {
 
       <FeaturesSection />
 
-      <TestimonialsSection />
-
       <PricingSection />
 
       <ContactSection />
@@ -92,37 +87,141 @@ const HeroSection: React.FC = () => {
   return (
     <Box position="relative" overflow="hidden">
       <BackgroundGradient height="100%" zIndex="-1" />
-      <Container maxW="container.xl" pt={{ base: 40, lg: 60 }} pb="40">
-        <Stack direction={{ base: 'column', lg: 'row' }} alignItems="center">
+      <Box
+        display={{ base: 'block', lg: 'none' }}
+        position="absolute"
+        top="-40px"
+        right="-80px"
+        w="280px"
+        h="280px"
+        borderRadius="full"
+        bg="primary.500"
+        opacity={0.22}
+        filter="blur(70px)"
+        pointerEvents="none"
+        zIndex={0}
+        aria-hidden
+      />
+      <Box
+        display={{ base: 'block', lg: 'none' }}
+        position="absolute"
+        top="45%"
+        left="-60px"
+        w="200px"
+        h="200px"
+        borderRadius="full"
+        bg="cyan.500"
+        opacity={0.18}
+        filter="blur(55px)"
+        pointerEvents="none"
+        zIndex={0}
+        aria-hidden
+      />
+      <Container
+        maxW="container.xl"
+        pt={{ base: 24, lg: 60 }}
+        pb={{ base: 16, lg: 40 }}
+        position="relative"
+        zIndex={1}
+      >
+        <Stack
+          direction={{ base: 'column', lg: 'row' }}
+          alignItems="center"
+          spacing={{ base: 6, lg: 8 }}
+        >
           <Hero
             id="home"
             justifyContent="flex-start"
             px="0"
+            py={{ base: 4, lg: 20 }}
             title={
               <FallInPlace>
-                Partner digital para
-                <Br /> marcas que buscan diferenciarse
+                <Text
+                  as="span"
+                  display={{ base: 'inline-flex', lg: 'none' }}
+                  alignItems="center"
+                  gap="2"
+                  mb="7"
+                  px="4"
+                  py="2"
+                  rounded="full"
+                  borderWidth="1px"
+                  borderColor="primary.100"
+                  bg="whiteAlpha.700"
+                  color="purple.700"
+                  fontSize="sm"
+                  fontWeight="medium"
+                  letterSpacing="0.01em"
+                  _dark={{
+                    borderColor: 'purple.300',
+                    bg: 'blackAlpha.300',
+                    color: 'purple.100',
+                  }}
+                >
+                  <Box
+                    as="span"
+                    w="2"
+                    h="2"
+                    rounded="full"
+                    bg="primary.500"
+                    boxShadow="0 0 0 5px rgba(124,58,237,0.12)"
+                  />
+                  Estudio digital para marcas modernas
+                </Text>
+                <Text
+                  as="span"
+                  display="block"
+                  fontSize={{ base: '40px', md: '6xl', lg: '6xl' }}
+                  lineHeight={{ base: '1.02', md: '0.95' }}
+                  letterSpacing={{ base: '-0.03em', md: '-0.04em' }}
+                  fontWeight="black"
+                >
+                  Partner digital
+                  <Br />
+                  para marcas que
+                </Text>
+                <Text
+                  as="span"
+                  display="block"
+                  mt={{ base: 2, md: 3 }}
+                  fontSize={{ base: '50px', md: '6xl', lg: '6xl' }}
+                  lineHeight={{ base: '0.98', md: '0.95' }}
+                  letterSpacing={{ base: '-0.03em', md: '-0.04em' }}
+                  fontWeight="black"
+                  bgGradient="linear(to-r, #5928ff, #8d5dff)"
+                  bgClip="text"
+                >
+                  buscan diferenciarse
+                </Text>
               </FallInPlace>
             }
             description={
-              <FallInPlace delay={0.4} fontWeight="medium">
-                Origami Labs es un estudio para marcas que buscan diferenciarse,
-                empresas con enfoque moderno y negocios especializados. Creamos{' '}
+              <FallInPlace
+                delay={0.4}
+                fontWeight="medium"
+                fontSize={{ base: '2xl', md: 'xl' }}
+                lineHeight={{ base: 1.45, md: 1.5 }}
+                maxW={{ base: '100%', md: '2xl' }}
+              >
                 <Em>
                   experiencias web rápidas, claras y orientadas a conversión
                 </Em>
                 <Br />
-                para equipos orientados a la excelencia que quieren más clientes
-                y una presencia online impecable.
+                para empresas que quieren más clientes y una presencia online
+                impecable.
               </FallInPlace>
             }
           >
             <FallInPlace delay={0.8}>
-              <ButtonGroup spacing={4} alignItems="center" pt="4">
+              <ButtonGroup spacing={4} alignItems="center" pt={{ base: 3, md: 4 }}>
                 <ButtonLink
                   colorScheme="primary"
-                  size="lg"
+                  size={{ base: 'md', md: 'lg' }}
                   href="mailto:adrianrocafull1@gmail.com?subject=Consulta%20Origami%20Labs"
+                  rounded={{ base: 'xl', md: 'full' }}
+                  px={{ base: 8, md: 7 }}
+                  minH={{ base: '58px', md: '52px' }}
+                  boxShadow="0 14px 35px rgba(89,40,255,0.35)"
                   rightIcon={
                     <Icon
                       as={FiArrowRight}
@@ -141,6 +240,17 @@ const HeroSection: React.FC = () => {
               </ButtonGroup>
             </FallInPlace>
           </Hero>
+          <Box
+            display={{ base: 'block', lg: 'none' }}
+            w="100%"
+            maxW="container.sm"
+            mx={{ base: 'auto', lg: 0 }}
+            mt={6}
+          >
+            <FallInPlace delay={1}>
+              <ProjectCarousel />
+            </FallInPlace>
+          </Box>
           <Box
             height="600px"
             position="absolute"
@@ -206,8 +316,6 @@ const HeroSection: React.FC = () => {
 }
 
 const HighlightsSection = () => {
-  const { onCopy, hasCopied } = useClipboard('adrianrocafull1@gmail.com')
-
   return (
     <Highlights>
       <HighlightsItem colSpan={[1, null, 2]} title="Filosofía y propuesta">
@@ -219,35 +327,26 @@ const HighlightsSection = () => {
             actual.
           </Text>
 
-          <Flex
+          <ButtonLink
+            href="/#contacto"
+            colorScheme="primary"
             rounded="full"
-            borderWidth="1px"
-            flexDirection="row"
-            alignItems="center"
-            py="1"
-            ps="8"
-            pe="2"
-            bg="primary.900"
-            _dark={{ bg: 'gray.900' }}
+            size="md"
+            rightIcon={
+              <Icon
+                as={FiArrowRight}
+                sx={{
+                  transitionProperty: 'common',
+                  transitionDuration: 'normal',
+                  '.chakra-button:hover &': {
+                    transform: 'translate(5px)',
+                  },
+                }}
+              />
+            }
           >
-            <Box>
-              <Text color="yellow.400" display="inline">
-                Email
-              </Text>{' '}
-              <Text color="cyan.300" display="inline">
-                adrianrocafull1@gmail.com
-              </Text>
-            </Box>
-            <IconButton
-              icon={hasCopied ? <FiCheck /> : <FiCopy />}
-              aria-label="Copiar email"
-              onClick={onCopy}
-              variant="ghost"
-              ms="4"
-              isRound
-              color="white"
-            />
-          </Flex>
+            Contáctanos
+          </ButtonLink>
         </VStack>
       </HighlightsItem>
       <HighlightsItem title="Sectores habituales">
@@ -269,7 +368,7 @@ const HighlightsSection = () => {
       <HighlightsTestimonialItem
         name="Origami Labs"
         description="Visión"
-        avatar="/static/favicons/apple-touch-icon.png"
+        avatar="/static/images/favicon.png"
         gradient={['pink.200', 'purple.500']}
       >
         Buscamos evolucionar hacia una plataforma modular reutilizable para
